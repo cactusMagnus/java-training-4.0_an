@@ -1,16 +1,43 @@
+import java.util.ArrayList;
+import java.util.List;
+
 public class Student {
-    int rating;
+    private int rating;
     private String name;
 
-    // TODO implement Student class according to the instructions provided in the README.md file
+    public static List<Student> students = new ArrayList<Student>();
+
+    public static void main(String[] args) {
+
+        Student firstStudent = new Student("Alice");
+        Student secondStudent = new Student("Margaret");
+        Student thirdStudent = new Student("Zoey");
+
+        firstStudent.setRating(55);
+        secondStudent.setRating(70);
+        thirdStudent.setRating(91);
+
+        System.out.println(getAvgRating());
+
+        secondStudent.changeRating(73);
+
+        System.out.println(getAvgRating());
+    }
 
     public Student(String name) {
-        //TODO initialize name
+        this.name = name;
+        students.add(this);
+    }
+
+    public Student() {
     }
 
     public static double getAvgRating() {
-        // TODO return average rating of all students
-        return 0;
+        int sumRating = 0;
+        for (int i = 0; i < students.size(); i++) {
+            sumRating += students.get(i).getRating();
+        }
+        return students.size() != 0 ? (double) sumRating / students.size() : 0.0d;
     }
 
     public String getName() {
@@ -18,7 +45,7 @@ public class Student {
     }
 
     public void setName(String name) {
-        // TODO set student's name
+        this.name = name;
     }
 
     public int getRating() {
@@ -26,25 +53,24 @@ public class Student {
     }
 
     public void setRating(int rating) {
-        // TODO initialize rating;
+        this.rating = rating;
     }
 
     public boolean betterStudent(Student student) {
-        // TODO return the result of comparing this.student's rating with the student's rating
-        return false;
+        return this.getRating() > student.getRating();
     }
 
     public void changeRating(int rating) {
-        // TODO change this student's rating and average rating of all students
+        this.rating = rating;
+        getAvgRating();
     }
 
     public static void removeStudent(Student student) {
-        // TODO remove student
+        students.remove(student);
     }
 
     @Override
     public String toString() {
-        // TODO return String with name and rating of this student
-        return "";
+        return "Student{name = '" + name + "', rating = " + rating + '}';
     }
 }
