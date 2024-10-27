@@ -1,5 +1,6 @@
-public class Swallow {
-    // TODO fix class declaration
+public class Swallow extends FlyingBird {
 
-    // TODO override toString method by returning a string with the class name
+    public Swallow() {
+        this.name = "Swallow";
+    }
 }
