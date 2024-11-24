@@ -15,8 +15,9 @@ public class LambdaTest {
                 {-1.0, 10.0, 10.0},
                 {0.0, 0.0, 0.0},
                 {-10.0, NaN, NaN},
-                {POSITIVE_INFINITY, 1e32, POSITIVE_INFINITY}
-                // TODO add 2 more test data here
+                {POSITIVE_INFINITY, 1e32, POSITIVE_INFINITY},
+                {7.25, 7.255, 7.255},
+                {0.0, 1.0, 1.0}
         };
     }
 
@@ -25,8 +26,10 @@ public class LambdaTest {
         return new Object[][]{
                 {25.0, 5.0},
                 {-1.0, NaN},
-                {POSITIVE_INFINITY, POSITIVE_INFINITY}
-                // TODO add 2 more test data here
+                {POSITIVE_INFINITY, POSITIVE_INFINITY},
+                {0.0, 0.0},
+                {4.0, 2.0}
+
         };
     }
 
